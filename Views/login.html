@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minium-scale=1.0">
+	<title>Acceso a Usuarios</title>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="../css/estilos.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/funciones.js"></script>
+</head>
+<body>
+<!--INICIO CAPA FORMULARIO-->
+<div class="formulario" id="formulario">
+<form method="POST" action=" " id="form0a" onsubmit="return false;">
+    <img src="../images/login.png"><br>
+    <a>Ingreso</a><br><br>
+	<input type="text"  class="frm" id="txtuser" placeholder="Usuario" name="usuario"/>
+	<input type="password" class="frm" id="txtpass" placeholder="Contraseña" name="contraseña"/>
+	<button type="submit" class="btn btn-primary" id="consulta">Autenticar</button>
+</form>
+</div>
+<script type="text/javascript">autenticacionGym();</script>
+</body>
+</html>

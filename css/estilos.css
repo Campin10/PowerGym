@@ -1,0 +1,205 @@
+body {
+	margin: 0;
+	font-family: 'Josefin Sans', sans-serif;
+}
+.contains {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+        background-image: url("../images/gyms.jpg");
+        opacity: 0.8;
+        filter: alpha(opacity=50); 
+        background-attachment: scroll, scroll;
+        background-clip: border-box, border-box;
+        background-origin: padding-box, padding-box;
+        background-position: 0 0%, 0 0;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover;
+}
+.header {
+	width: 100%;
+	height: 50px;
+	background: #e67300;
+}
+.menu {
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	cursor: pointer;
+}
+#layer01 {
+	position: absolute;
+	width: 300px;
+	height: 100%;
+	right: -300px;
+	top: 0px;
+	background: #e67300;
+}
+.back {
+    position: absolute;
+	right: 10px;
+	top: 7px;
+	cursor: pointer;
+	display: none;
+}
+.logo {
+	position: absolute;
+	left: 30px;
+	top: 5px;
+	cursor: pointer;
+}
+#link01 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 50px;
+	border: 1px solid #FFFFFF;
+	border-top: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
+#link02 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 101px;
+	border: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
+#link03 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 152px;
+	border: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
+.formulario {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+       background: #e67300;
+/*        background-image: url("../images/homegym.jpg");*/
+        
+}
+.formulario01 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+/*	background: #e67300;*/
+background-image: url("../images/homegym.jpg");
+
+}
+#form0a {
+	position: absolute;
+	width: 500px;
+	height: 440px;
+	text-align: center;
+	cursor: pointer;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 20%;
+}
+#form01 {
+	position: relative;
+	width: 42%;
+	height: 520px;
+	top: 10%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	border:2px solid #fff;
+	cursor: pointer;
+        background: #e67300;
+        border-radius: 50px;
+}
+.close {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	cursor: pointer;
+}
+.frm {
+	width: 60%;
+	height: 30px;
+	border: 2px solid #ccc;
+    margin-top: 15px;
+    background: #ccc;
+    color: #000;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+
+}
+.formulario01 form img {
+	position: relative;
+	width: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+#consulta {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 5px;
+}
+#consulta-a {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 5px;
+}
+form a {
+	position: relative;
+	color: #FFFFFF;
+	font-size: 50px;
+	top: 15px;
+}
+.gym {
+	position: absolute;
+	width: 100%;
+	opacity: 0.5;
+	bottom: 0;
+}
+.select {
+	border: 2px solid #565656;
+	background: #FFFFFF;
+	color: #000;
+}
+.error {
+	border: 2px solid red;
+	background: #FFFFFF;
+	color: red;
+}
