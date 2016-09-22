@@ -1,16 +1,12 @@
 <?php
 
 function Conectarse() {
-
     $servername = "localhost";
     $username = "admin";
     $password = "campos";
     $database = "masterbase";
-
-// Create connection
     mysql_connect($servername, $username, $password);
     mysql_select_db($database);
-// Check connection
 }
 
 function consulta($campos, $tabla, $condicion) {
@@ -20,7 +16,6 @@ function consulta($campos, $tabla, $condicion) {
     $result = mysql_query($cadena);
     $datos = array();
     $j = 0;
-    
     if(!empty($result))
     while ($row = mysql_fetch_array($result)) {
         if ($j == 0) {
@@ -29,7 +24,6 @@ function consulta($campos, $tabla, $condicion) {
                     $d[] = $key;
             }
         }
-        
         for ($i = 0; $i < count($d); $i++) {
             $datos[$j][$d[$i]] = $row[$d[$i]];
         }

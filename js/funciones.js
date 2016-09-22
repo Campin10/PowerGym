@@ -1,42 +1,3 @@
-function menuOption()
-{
-	$('#menu').hide(500);
-	$('#back').fadeIn(1000);
-	$('#contains').animate({'left':'-300px'});
-	var menu = document.createElement('div');
-	    form01 = document.createElement('a');
-	    form02 = document.createElement('a');
-      form03 = document.createElement('a');
-	    txt01 = document.createTextNode('Ingreso');
-	    txt02 = document.createTextNode('Datos personales');
-      txt03 = document.createTextNode('Nivel de entrenamiento');
-
-	    menu.setAttribute('id','layer01');
-	    form01.setAttribute('id','link01');
-      form01.href = 'login.html';
-	    form02.setAttribute('id','link02');
-      form02.href = 'datos-personales.html';
-      form03.setAttribute('id','link03');
-		document.body.appendChild(menu);
-		menu.appendChild(form01);
-		menu.appendChild(form02);
-    menu.appendChild(form03)
-        form01.appendChild(txt01);
-        form02.appendChild(txt02);
-        form03.appendChild(txt03);
-	$('#layer01').animate({'right':0});
-	$('#back').on('click', function(){
-      $('#back').hide(500);
-      $('#menu').fadeIn(1000);
-      $('#contains').animate({'left':0});
-      $('#layer01').animate({'right':'-300px'});
-      setTimeout(function(){
-      $('#layer01').remove();
-      },350);
-      
-	});
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function autenticacionGym() {
   $('#consulta').click(function() {
@@ -68,7 +29,6 @@ function autenticacionGym() {
 
      function guardarDatos()
        {
-                  validateForm("form01");  
           var jqxhr = $.post( "../Controller/HomeController.php", $('#form01').serialize(),function() {
             })
               .done(function() {
@@ -81,36 +41,94 @@ function autenticacionGym() {
              
        }
 
-function validateForm(idForm) {
-
-    $("#" + idForm + " :input[type=text], textarea").not('.email').not('.no_mayus').each(function () {
-        $(this).val($(this).val().toUpperCase());
-    });
-     
-
-    $("#" + idForm).validate({
-        errorClass: "invalid",
-        errorPlacement: function (error, element) {
-
-            if (element.attr("type") == "radio") {
-                $("#divRadio" + element.attr("id")).addClass("invalid");
-            }
-
-            if (element.attr("type") == "checkbox") {
-                $("#divCheckBox" + element.attr("id")).addClass("invalid");
-            }
-
-            return true;
-        }
-    });
-}
-//
-
 function menuinicio()
 {
       location.href="../Views/Inicio.html";
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////function codeTecla()
+
+
+function menuOption()
+{
+	$('#menu').hide(500);
+	$('#back').fadeIn(1000);
+	$('#contains').animate({'left':'-300px'});
+	var menu = document.createElement('div');
+	    form01 = document.createElement('a');
+	    form02 = document.createElement('a');
+      form03 = document.createElement('a');
+      form04 = document.createElement('a');
+      form05 = document.createElement('a');
+	    txt01 = document.createTextNode('Salir');
+	    txt02 = document.createTextNode('Datos personales');
+      txt03 = document.createTextNode('Problemas de salud');
+      txt04 = document.createTextNode('Entrenamiento');
+      txt05 = document.createTextNode('Actividad fisica');
+
+	    menu.setAttribute('id','layer01');
+	    form01.setAttribute('id','link01');
+      form01.href = 'login.html';
+	    form02.setAttribute('id','link02');
+      form02.href = 'datos-personales.html';
+      form03.setAttribute('id','link03');
+      form03.href = 'problemas-salud.html';
+      form04.setAttribute('id','link04');
+      form04.href = 'entrenamientos.html';
+      form05.setAttribute('id','link05');
+      form05.href = 'actividades-fisicas.html';
+		document.body.appendChild(menu);
+		menu.appendChild(form01);
+		menu.appendChild(form02);
+    menu.appendChild(form03);
+    menu.appendChild(form04);
+    menu.appendChild(form05);
+        form01.appendChild(txt01);
+        form02.appendChild(txt02);
+        form03.appendChild(txt03);
+        form04.appendChild(txt04);
+        form05.appendChild(txt05);
+	$('#layer01').animate({'right':0});
+	$('#back').on('click', function(){
+      $('#back').hide(500);
+      $('#menu').fadeIn(1000);
+      $('#contains').animate({'left':0});
+      $('#layer01').animate({'right':'-300px'});
+      setTimeout(function(){
+      $('#layer01').remove();
+      },350);
+      
+	});
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function envioForm01() {
+  $('#consulta').click(function() {
+     var form0a = document.getElementById('form1').value;
+         form0b = document.getElementById('form2').value;
+     if(form0a !== '' && form0b !== '') {
+        alert('estan todos los campos');
+     }
+     else {
+        if(form0a == '') {
+          $('#form1').addClass('error');
+          $('#form1').on('focus', function() {
+             $(this).removeClass('error');
+          });
+
+        }
+        if(form0b == '') {
+          $('#form2').addClass('error');
+          $('#form2').on('click', function() {
+             $(this).removeClass('error');
+          });
+        }
+        return false;
+     } 
+  });
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function openForm02() {
     $('#contains').animate({'left':0});

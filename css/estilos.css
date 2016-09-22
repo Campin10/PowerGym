@@ -7,15 +7,6 @@ body {
 	width: 100%;
 	height: 100%;
 	left: 0px;
-        background-image: url("../images/gyms.jpg");
-        opacity: 0.8;
-        filter: alpha(opacity=50); 
-        background-attachment: scroll, scroll;
-        background-clip: border-box, border-box;
-        background-origin: padding-box, padding-box;
-        background-position: 0 0%, 0 0;
-        background-repeat: no-repeat, no-repeat;
-        background-size: cover;
 }
 .header {
 	width: 100%;
@@ -94,15 +85,43 @@ body {
 	cursor: pointer;
 	text-decoration: none;
 }
+#link04 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 203px;
+	border: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
+#link05 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 254px;
+	border: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
 .formulario {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
-       background: #e67300;
-/*        background-image: url("../images/homegym.jpg");*/
-        
+	background: #e67300;
 }
 .formulario01 {
 	position: absolute;
@@ -111,8 +130,31 @@ body {
 	top: 0;
 	left: 0;
 /*	background: #e67300;*/
-background-image: url("../images/homegym.jpg");
-
+        background-image: url("../images/homegym.jpg");
+}
+.formulario02 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #e67300;
+}
+.formulario03 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #e67300;
+}
+.formulario04 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #e67300;
 }
 #form0a {
 	position: absolute;
@@ -138,6 +180,43 @@ background-image: url("../images/homegym.jpg");
 	cursor: pointer;
         background: #e67300;
         border-radius: 50px;
+}
+
+#form02 {
+	position: absolute;
+	width: 49%;
+	height: 240px;
+	top: 10%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	border:2px solid #fff;
+	cursor: pointer;
+}
+#form03 {
+	position: absolute;
+	width: 49%;
+	height: 280px;
+	top: 10%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	border:2px solid #fff;
+	cursor: pointer;
+}
+#form04 {
+	position: absolute;
+	width: 49%;
+	height: 390px;
+	top: 10%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	border:2px solid #fff;
+	cursor: pointer;
 }
 .close {
 	position: absolute;
@@ -202,4 +281,13 @@ form a {
 	border: 2px solid red;
 	background: #FFFFFF;
 	color: red;
+}
+.fondo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.fnd {
+	width: 100%;
+	height: 100%;
 }
