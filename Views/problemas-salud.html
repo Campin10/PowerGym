@@ -17,15 +17,9 @@
 	<a>Problemas de salud</a>
 	<input type="text"  class="frm" id="form1-a" placeholder="Descripción" name="descripción"/>
 	<input list="salud" class="frm" id="form2-a" placeholder="Tipo de problema" name="problema"/>
-	<datalist id="salud">
-		  <option value="Cardiaco"></option>
-		  <option value="Pulmonar"></option>
-		  <option value="Obesidad"></option>
-		  <option value="Colesterol"></option>
-		  <option value="Sedentarismo"></option>
-    </datalist>
+        <select id="TipoEnfermedades" class='form-control'></select>    
         <div class="row" style="height:25px;">&nbsp;</div>
-        <input type="button" class="btn btn-success" id="btnguardar" value="Guardar" onclick="" >
+        <input type="button" class="btn btn-success" id="btnguardar" value="Guardar"  onload="" >
   </form>
 </div>
 <!--FIN CAPA FORMULARIO1-->
