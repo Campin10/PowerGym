@@ -28,7 +28,8 @@ function autenticacionGym() {
 }
 
      function guardarDatos()
-       {
+       {  
+          
           var jqxhr = $.post( "../Controller/HomeController.php", $('#form01').serialize(),function() {
             })
               .done(function() {
