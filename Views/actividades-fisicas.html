@@ -9,20 +9,23 @@
     <script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/funciones.js"></script>
 	<script type="text/javascript">
-            
+            $(document).ready(function(){
+                cargarListaActividades();
+            });
 	</script>
 </head>
 <body>
 <!--INICIO CAPA FORMULARIO01-->
 <div class="formulario03" id="formulario03">
-<img src="../images/close.png" class="close" id="close01">
+    <img src="../images/close.png" class="close" id="close01" onclick="menuinicio();">
 <form method="POST" action=" " id="form03" name="actividadesform">
 	<p>Actividades físicas</p>
         <select id="Actividades" class='frm'></select>
 	<input type="text"  class="frm" id="form1-a" placeholder="Tiempo" name="tiempo"/>
 	<input type="text"  class="frm" id="form2-a" placeholder="Descripción" name="descripción"/>
+        <div class="row" style="height:15px;">&nbsp;</div>
 	<input type="button" class="btn btn-primary" id="btnagregar" value="Agregar" onclick="AgregarListaTabla();">
-         <div class="row" style="height:25px;">&nbsp;</div>
+         <div class="row" style="height:45px;">&nbsp;</div>
         <table id="tablaEnfermedades" class="table table-bordered table-responsive">
             <tr>
                 <td>Actividad</td>

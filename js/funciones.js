@@ -21,7 +21,6 @@ function autenticacionGym() {
         });
   });
 }
-
      function guardarDatos()
        {  
           
@@ -39,7 +38,6 @@ function autenticacionGym() {
 
 function menuinicio()
 {
-    
       location.href="../Views/Inicio.html";
 }
 
@@ -51,6 +49,18 @@ function cargarLista()
                     var obj = jQuery.parseJSON(response)
                     $.each(obj, function (key, val) {
                         $('#TipoEnfermedades').append('<option value="' + val.idEnfermedad + '">' + val.descripcion + '</option>'); 
+                    });
+        })
+      }
+      
+      function cargarListaActividades()
+      {
+        $('#Actividades *').remove();
+        $('#Actividades').append('<option value="0">Seleccione uno...</option>');
+        $.post('../Controller/HomeController.php',{ action: "cargarListaActividades"}, function (response) {
+                    var obj = jQuery.parseJSON(response)
+                    $.each(obj, function (key, val) {
+                        $('#Actividades').append('<option value="' + val.idactividad + '">' + val.descripcion + '</option>'); 
                     });
         })
       }
@@ -147,31 +157,5 @@ function menuOption()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function openForm02() {
-    $('#contains').animate({'left':0});
-    $('#layer01').animate({'right':'-300px'});
-	  $('#formulario01').fadeIn(1000);
-    $('#form01').fadeIn(2500);
-
-    $('#form01').on('mouseover', function(){
-      $('.gym').css('opacity','1');
-    });
-
-	  $('#form01').on('mouseout', function(){
-      $('.gym').css('opacity','0.5');
-    });
-
-	  $('#close01').on('click', function(){
-  	  $('#back').hide();
-  	  $('#menu').show();
-      $('#formulario01').fadeOut();
-      $('input').removeClass('error').val('');
-	  });
-
-	$('.gym').css({
-	    position : 'absolute',
-      top : ($(window).height() - $('.gym').outerHeight()),
-	});
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////function codeTecla()

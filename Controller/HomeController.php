@@ -15,8 +15,20 @@ switch ($action) {
     case 'EnfermedadesTabla':
         cargarEnfermedades();
         break;
+case 'cargarListaActividades':
+    cargarlistActividad();
+        break;
+    
     default:
         break;
+}
+
+function cargarlistActividad()
+{
+    $columnas = "idactividad,descripcion";
+    $valores = consulta($columnas, "actividades", "");
+    $res = json_encode($valores);
+    return $res;
 }
 
 function cargarEnfermedades()
