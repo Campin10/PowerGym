@@ -6,22 +6,17 @@ function autenticacionGym() {
                 var parametros = {
                 "action": 'validar',
                 "usuario" : user,
-                "Contrasena": con
-        };
+                "Contrasena": con };
         $.ajax({
                 data:  parametros,
                 url:   '../Controller/loginController.php',
                 type:  'post',
-                beforeSend: function () {
-                       //$("#resultado").html("Procesando, espere por favor...");
-                },
                 success:  function (response) {
                   if(response==1){
                       location.href="../Views/Inicio.html";
                   }else{
                       alert('Usuario no valido')
                   }
-                    //$("#result;ado").html(response);
                 }
         });
   });
@@ -44,13 +39,59 @@ function autenticacionGym() {
 
 function menuinicio()
 {
+    
       location.href="../Views/Inicio.html";
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////function codeTecla()
+function cargarLista()
+      {
+        $('#TipoEnfermedades *').remove();
+        $('#TipoEnfermedades').append('<option value="0">Seleccione uno...</option>');
+        $.post('../Controller/HomeController.php',{ action: "cargarListaEnfermedades"}, function (response) {
+                    var obj = jQuery.parseJSON(response)
+                    $.each(obj, function (key, val) {
+                        $('#TipoEnfermedades').append('<option value="' + val.idEnfermedad + '">' + val.descripcion + '</option>'); 
+                    });
+        })
+      }
 
+function AgregarListaTabla()
+{
+    if($("#TipoEnfermedades").val() !== null)
+    var nuevoRegistro;
+    nuevoRegistro = "<tr>";
+    nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+$("#TipoEnfermedades").val()+"> "+$("#TipoEnfermedades  option:selected").text()+"</td>";
+    nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+$("#salud01").val()+"> "+$("#salud01").val()+"</td> <tr>";
+    $("#tablaEnfermedades").append(nuevoRegistro);
+    
+}
+
+function GuardarEnfermedades()
+{
+      var jqxhr = $.post( "../Controller/HomeController.php", $('#salud-form').serialize(),function() {
+            })
+              .done(function() {
+                alert( "Datos Guardados" );
+                location.href="../Views/Inicio.html";
+              })
+              .fail(function() {
+                alert( "error" );
+              }); 
+}
+
+function cargarValoresEnfermedades()
+{
+    $.post('../Controller/HomeController.php',{ action: "EnfermedadesTabla"}, function (response) {
+         var obj = jQuery.parseJSON(response);
+                    $.each(obj, function (key, val) {
+           var nuevoRegistro;
+           nuevoRegistro = "<tr>";
+           nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+val.idEnfermedad+"> "+val.descripcion+"</td>";
+           nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.Descripcion+"> "+val.Descripcion+"</td> <tr>";
+           $("#tablaEnfermedades").append(nuevoRegistro);
+                    });
+            });
+}
 
 function menuOption()
 {
@@ -105,31 +146,6 @@ function menuOption()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function envioForm01() {
-  $('#consulta').click(function() {
-     var form0a = document.getElementById('form1').value;
-         form0b = document.getElementById('form2').value;
-     if(form0a !== '' && form0b !== '') {
-        alert('estan todos los campos');
-     }
-     else {
-        if(form0a == '') {
-          $('#form1').addClass('error');
-          $('#form1').on('focus', function() {
-             $(this).removeClass('error');
-          });
-
-        }
-        if(form0b == '') {
-          $('#form2').addClass('error');
-          $('#form2').on('click', function() {
-             $(this).removeClass('error');
-          });
-        }
-        return false;
-     } 
-  });
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function openForm02() {
     $('#contains').animate({'left':0});
@@ -158,62 +174,4 @@ function openForm02() {
 	});
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function envioForm() 
-{ 
-   var box = document.getElementsByTagName('input');
-   for (i = 0; i < box.length; i++) {
-       box[i].addEventListener('focus', function(){
-        $(this).addClass('select');
-       });
-       box[i].addEventListener('blur', function(){
-       	$(this).removeClass('select');
-       });
-   }
-   $('#consulta-a').click(function() {
-      var form01 = document.getElementById('form1-a').value,
-          form02 = document.getElementById('form2-a').value,
-          form03 = document.getElementById('form3-a').value,
-          form04 = document.getElementById('form4-a').value,
-          form05 = document.getElementById('form5-a').value;
-
-      /**/
-      if(form01 !=='' && form02 !== '' && form03 !== '' && form04 !== '' && form05 !== '' ) {
-        alert('envio ok');
-      }
-      else {
-      if(form01 == '') {
-        $('#form1-a').addClass('error');  
-        $('#form1-a').on('focus', function() {
-        $('#form1-a').removeClass('error');
-      });
-      }
-      if(form02 == '') {      
-        $('#form2-a').addClass('error');
-        $('#form2-a').on('focus', function() {
-        $('#form2-a').removeClass('error');
-      });    
-      }
-      if(form03 == '') {
-        $('#form3-a').addClass('error');
-        $('#form3-a').on('focus', function() {
-        $('#form3-a').removeClass('error');
-      });
-      }
-      if(form04 == '') {
-        $('#form4-a').addClass('error');
-        $('#form4-a').on('focus', function() {
-        $('#form4-a').removeClass('error');
-      });
-      }
-      if(form05 == '') {
-        $('#form5-a').addClass('error');
-        $('#form5-a').on('focus', function() {
-        $('#form5-a').removeClass('error');
-      });
-      }
-        return false;
-      }   
-      
-   });
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////function codeTecla()

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function Conectarse() {
     $servername = "localhost";
     $username = "admin";
@@ -12,6 +12,13 @@ function Conectarse() {
 function consulta($campos, $tabla, $condicion) {
 
     $cadena = "select " . $campos . " from " . $tabla." WHERE ".$condicion;
+    if($condicion!= NULL)
+    {
+        $cadena = "select " . $campos . " from " . $tabla." WHERE ".$condicion;
+    }
+ else {
+        $cadena = "select " . $campos . " from " . $tabla;
+    }
     Conectarse();
     $result = mysql_query($cadena);
     $datos = array();
@@ -30,6 +37,29 @@ function consulta($campos, $tabla, $condicion) {
         $j++;
     }
     return $datos;
+}
+
+function consultasql($cadena)
+{
+      Conectarse();
+    $result = mysql_query($cadena);
+    $datos = array();
+    $j = 0;
+    if(!empty($result))
+    while ($row = mysql_fetch_array($result)) {
+        if ($j == 0) {
+            foreach ($row as $key => $value) {
+                if (!is_numeric($key))
+                    $d[] = $key;
+            }
+        }
+        for ($i = 0; $i < count($d); $i++) {
+            $datos[$j][$d[$i]] = $row[$d[$i]];
+        }
+        $j++;
+    }
+    return $datos;
+    
 }
 
 function Insertar($campos, $valores, $tabla) {
