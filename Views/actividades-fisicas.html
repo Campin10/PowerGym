@@ -2,35 +2,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minium-scale=1.0">
-	<title>Login</title>
+	<title>Power Gym</title>
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="css/estilos.css">
-    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src="js/funciones.js"></script>
+	<link rel="stylesheet" href="../css/estilos.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/funciones.js"></script>
 	<script type="text/javascript">
-
+            
 	</script>
 </head>
-<html>
 <body>
 <!--INICIO CAPA FORMULARIO01-->
 <div class="formulario03" id="formulario03">
-<img src="images/close.png" class="close" id="close01">
-  <form method="POST" action=" " id="form03">
-	<a>Actividades físicas</a>
+<img src="../images/close.png" class="close" id="close01">
+<form method="POST" action=" " id="form03" name="actividadesform">
+	<p>Actividades físicas</p>
+        <select id="Actividades" class='frm'></select>
 	<input type="text"  class="frm" id="form1-a" placeholder="Tiempo" name="tiempo"/>
 	<input type="text"  class="frm" id="form2-a" placeholder="Descripción" name="descripción"/>
-	<input list="actividad" class="frm" id="form3-a" placeholder="Tipo de actividad" name="actividad"/>
-	<datalist id="actividad">
-		  <option value="dormir"></option>
-		  <option value="estudiar"></option>
-		  <option value="leer"></option>
-		  <option value="trabajar"></option>
-		  <option value="salir"></option>
-    </datalist>
-	<button type="submit" id="consulta-a">Guardar</button>
+	<input type="button" class="btn btn-primary" id="btnagregar" value="Agregar" onclick="AgregarListaTabla();">
+         <div class="row" style="height:25px;">&nbsp;</div>
+        <table id="tablaEnfermedades" class="table table-bordered table-responsive">
+            <tr>
+                <td>Actividad</td>
+                <td>Duracion</td>
+                <td>Descripcion</td>
+            </tr>
+        </table>
+         <div class="row" style="height:25px;">&nbsp;</div>
+       <input type="button" class="btn btn-success" id="btnguardar" value="Guardar" onclick="GuardarEnfermedades();">
   </form>
-<img src="images/equipos.png" class="gym">
 </div>
 <!--FIN CAPA FORMULARIO1-->
 <script type="text/javascript">envioForm();envioForm01();</script>
