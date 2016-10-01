@@ -4,36 +4,35 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minium-scale=1.0">
 	<title>Login</title>
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="css/estilos.css">
-    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src="js/funciones.js"></script>
-	<script type="text/javascript">
-
-	</script>
+	<link rel="stylesheet" href="../css/estilos.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/funciones.js"></script>
+        <script type="text/javascript" >
+           $(document).ready(function(){       
+               cargarListaNiveles();
+            });
+        </script>
 </head>
 <body>
 <!--INICIO CAPA FORMULARIO01-->
-<div class="formulario01" id="formulario04">
-<img src="images/close.png" class="close" id="close01">
-  <form method="POST" action=" " id="form04">
-	<a>Entrenimiento</a>
-	<input type="text"  class="frm" id="form1-a" placeholder="Descripción" name="descripcion"/>
-	<input list="entrenar" class="frm" id="form2-a" placeholder="Tipo de entrenamiento" name="entrenamiento"/>
-	<datalist id="entrenar">
-		  <option value="Cardiaco"></option>
-		  <option value="Pulmonar"></option>
-		  <option value="Obesidad"></option>
-		  <option value="Colesterol"></option>
-		  <option value="Sedentarismo"></option>
-    </datalist>
-	<input type="text" class="frm" id="form2-a" placeholder="Duración" name="duracion"/>
-	<input type="text" class="frm" id="form3-a" placeholder="Repeticiones" name="repeticiones"/>
-	<input type="text" class="frm" id="form4-a" placeholder="Calorías quemadas" name="calorias"/>
-	<button type="submit" id="consulta-a">Guardar</button>
+<div class="formulario03" id="formulario03">
+<img src="../images/close.png" class="close" id="close01" onclick="menuinicio();">
+  <form method="POST" action=" " id="form03">
+	<p>Entrenimiento</p>
+	<select id="Niveles" class='frm'></select>
+	<div class="row" style="height:45px;">&nbsp;</div>
+        <input type="button" class="btn btn-success" id="btnagregar" value="Generar" onclick="generarEntrenamiento();">
+        <div class="row" style="height:85px;">&nbsp;</div>
+        <table id="tablaEntrenamientos" class="table table-bordered table-responsive">
+            <tr>
+                <td>Dia</td>
+                <td>Ejercicio</td>
+                <td>Calorias</td>
+            </tr>
+        </table>
   </form>
-<img src="images/equipos.png" class="gym">
 </div>
 <!--FIN CAPA FORMULARIO1-->
-<script type="text/javascript">envioForm();envioForm01();</script>
 </body>
 </html>

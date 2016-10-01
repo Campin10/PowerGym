@@ -2,8 +2,8 @@
 session_start();
 function Conectarse() {
     $servername = "localhost";
-    $username = "admin";
-    $password = "campos";
+    $username = "root";
+    $password = "";
     $database = "masterbase";
     mysql_connect($servername, $username, $password);
     mysql_select_db($database);

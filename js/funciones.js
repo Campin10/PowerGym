@@ -62,18 +62,42 @@ function cargarLista()
                     $.each(obj, function (key, val) {
                         $('#Actividades').append('<option value="' + val.idactividad + '">' + val.descripcion + '</option>'); 
                     });
-        })
+        });
+      }
+      
+   function cargarListaNiveles()
+      {
+        $('#Niveles *').remove();
+        $('#Niveles').append('<option value="0">Seleccione uno...</option>');
+        $.post('../Controller/HomeController.php',{ action: "cargarListaNivel"}, function (response) {
+                    var obj = jQuery.parseJSON(response)
+                    $.each(obj, function (key, val) {
+                        $('#Niveles').append('<option value="' + val.idactividad + '">' + val.descripcion + '</option>'); 
+                    });
+        });
       }
 
 function AgregarListaTabla()
 {
-    if($("#TipoEnfermedades").val() !== null)
+    if($("#TipoEnfermedades").val() !== "0")
     var nuevoRegistro;
     nuevoRegistro = "<tr>";
     nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+$("#TipoEnfermedades").val()+"> "+$("#TipoEnfermedades  option:selected").text()+"</td>";
     nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+$("#salud01").val()+"> "+$("#salud01").val()+"</td> <tr>";
     $("#tablaEnfermedades").append(nuevoRegistro);
     
+}
+
+function AgregarListaTablaActividades()
+{
+    if($("#Actividades").val() !== "0")
+    var nuevoRegistro;
+    nuevoRegistro = "<tr>";
+    nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+$("#Actividades").val()+"> "+$("#Actividades  option:selected").text()+"</td>";
+     nuevoRegistro+="<td><input type='hidden' id='idatime' name='idatime[]' value="+$("#textTiempo").val()+"> "+$("#textTiempo").val()+"</td>";
+    nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+$("#textdescripcion").val()+"> "+$("#textdescripcion").val()+"</td></tr>";
+   
+    $("#tablaActividades").append(nuevoRegistro);
 }
 
 function GuardarEnfermedades()
@@ -83,6 +107,19 @@ function GuardarEnfermedades()
               .done(function() {
                 alert( "Datos Guardados" );
                 location.href="../Views/Inicio.html";
+              })
+              .fail(function() {
+                alert( "error" );
+              }); 
+}
+
+function guardarActividades()
+{
+    var jqxhr = $.post( "../Controller/HomeController.php", $('#form03').serialize(),function() {
+            })
+              .done(function() {
+                alert( "Datos Guardados" );
+                //location.href="../Views/Inicio.html";
               })
               .fail(function() {
                 alert( "error" );
@@ -99,6 +136,22 @@ function cargarValoresEnfermedades()
            nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+val.idEnfermedad+"> "+val.descripcion+"</td>";
            nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.Descripcion+"> "+val.Descripcion+"</td> <tr>";
            $("#tablaEnfermedades").append(nuevoRegistro);
+                    });
+            });
+}
+
+function generarEntrenamiento()
+{
+      $.post('../Controller/HomeController.php',{ action: "generarentrenamientos"}, function (response) {
+                    var dia = 1;
+          var obj = jQuery.parseJSON(response);
+                    $.each(obj, function (key, val) {
+           var nuevoRegistro;
+           nuevoRegistro = "<tr>";
+           nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+dia+"> "+dia+"</td>";
+           nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.descripcion+"> "+val.descripcion+"</td>";
+           nuevoRegistro+="<td><input type='hidden' id='idacalorias' name='idacalorias[]' value="+val.caloriasminuto+"> "+val.caloriasminuto+"</td> <tr>";
+                        $("#tablaEntrenamientos").append(nuevoRegistro);
                     });
             });
 }
