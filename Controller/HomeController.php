@@ -31,11 +31,42 @@ case 'cargarListaActividades':
         break;
 }
 
+
 function generacionEntrenamientos()
 {
-    $valores = consultasql("SELECT e.idEjercicio,e.descripcion,e.caloriasminuto,e.idMusculo from catejercicios e LEFT OUTER JOIN rel_enfermedad_ejercicio r on e.idEjercicio = r.idejercicio LEFT OUTER JOIN (SELECT * FROM enfermedadesusuario WHERE idUsuario = ".$_SESSION["idUseru"].") eu on r.idenfermedad = eu.idEnfermedad WHERE r.idenfermedad IS null ");
-    $res = json_encode($valores);
-    echo $res;
+    $nivel = $_POST["nivel"];
+    $valores = consultasql("SELECT e.idEjercicio,e.descripcion,e.caloriasminuto,e.idMusculo from catejercicios e LEFT OUTER JOIN rel_enfermedad_ejercicio r on e.idEjercicio = r.idejercicio LEFT OUTER JOIN (SELECT * FROM enfermedadesusuario WHERE idUsuario = ".$_SESSION["idUseru"].") eu on r.idenfermedad = eu.idEnfermedad WHERE r.idenfermedad IS null "); 
+    $contador = 1;
+    $limite = 5;
+    $res = null;
+    $factor = 2;
+    if($nivel == 2)
+    {
+    $factor = 3;
+    }
+    if($nivel == 3)
+    {
+    $factor = 4;
+    }
+    if($nivel == 4)
+    {
+    $factor = 4;
+    }
+    
+        $valor[] = NULL;
+        for ($i = 0; $i <= $limite * $factor; $i+=$factor)
+        {
+            for ($j = $i; $j < $i + 3; $j++)
+          {
+           $valor[$j]["descripcion"] = $valores[$j]["descripcion"];
+           $valor[$j]["caloriasminuto"] = $valores[$j]["caloriasminuto"];
+           $valor[$j]["dia"] = $contador;
+          }
+           $contador = $contador + 1;
+        }
+        $res = json_encode($valor);
+        echo $res;
+    
     return $res;
 }
 
@@ -69,7 +100,7 @@ function cargarlistEnfermedades()
 function cargarEnfermedades()
 {
     $valores = consultasql("SELECT e.idEnfermedad,e.descripcion,eu.Descripcion from enfermedades e inner join enfermedadesusuario eu on e.idEnfermedad = eu.idEnfermedad where eu.idUsuario = ".$_SESSION["idUseru"]);
-     $res = json_encode($valores);
+    $res = json_encode($valores);
     return $res;
 }
 

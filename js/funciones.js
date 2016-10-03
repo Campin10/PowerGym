@@ -67,12 +67,12 @@ function cargarLista()
       
    function cargarListaNiveles()
       {
-        $('#Niveles *').remove();
-        $('#Niveles').append('<option value="0">Seleccione uno...</option>');
+        $('#nivel *').remove();
+        $('#nivel').append('<option value="0">Seleccione uno...</option>');
         $.post('../Controller/HomeController.php',{ action: "cargarListaNivel"}, function (response) {
                     var obj = jQuery.parseJSON(response)
                     $.each(obj, function (key, val) {
-                        $('#Niveles').append('<option value="' + val.idactividad + '">' + val.descripcion + '</option>'); 
+                        $('#nivel').append('<option value="' + val.idnivel + '">' + val.descripcion + '</option>'); 
                     });
         });
       }
@@ -142,13 +142,13 @@ function cargarValoresEnfermedades()
 
 function generarEntrenamiento()
 {
-      $.post('../Controller/HomeController.php',{ action: "generarentrenamientos"}, function (response) {
-                    var dia = 1;
+      $.post('../Controller/HomeController.php',$('#form03').serialize(), function (response) {
+          $("#tablaEntrenamientos").empty();
           var obj = jQuery.parseJSON(response);
                     $.each(obj, function (key, val) {
            var nuevoRegistro;
            nuevoRegistro = "<tr>";
-           nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+dia+"> "+dia+"</td>";
+           nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+val.dia+"> "+val.dia+"</td>";
            nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.descripcion+"> "+val.descripcion+"</td>";
            nuevoRegistro+="<td><input type='hidden' id='idacalorias' name='idacalorias[]' value="+val.caloriasminuto+"> "+val.caloriasminuto+"</td> <tr>";
                         $("#tablaEntrenamientos").append(nuevoRegistro);

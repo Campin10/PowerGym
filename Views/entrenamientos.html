@@ -18,9 +18,11 @@
 <!--INICIO CAPA FORMULARIO01-->
 <div class="formulario03" id="formulario03">
 <img src="../images/close.png" class="close" id="close01" onclick="menuinicio();">
-  <form method="POST" action=" " id="form03">
-	<p>Entrenimiento</p>
-	<select id="Niveles" class='frm'></select>
+  <form method="POST" action=" " id="form03" name="entrenamientoform">
+      	<p>Entrenimiento</p>
+      <input type="hidden" name="action" value="generarentrenamientos">
+      <input type="hidden" name="tipo" id="tipo">
+        <select id="nivel" class='frm' name="nivel"></select>
 	<div class="row" style="height:45px;">&nbsp;</div>
         <input type="button" class="btn btn-success" id="btnagregar" value="Generar" onclick="generarEntrenamiento();">
         <div class="row" style="height:85px;">&nbsp;</div>
