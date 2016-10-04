@@ -4,7 +4,6 @@ $action = $_POST["action"];
 switch ($action) {
     case 'guardarBasicos':
        guardarDatosBasicos();
-       
         break;
     case 'cargarListaEnfermedades':
         cargarlistEnfermedades();
@@ -31,6 +30,11 @@ case 'cargarListaActividades':
         break;
 }
 
+//function calcularEntrenamientoRecomendado()
+//{
+//   $valores = consultasql($cadena);
+//
+//}
 
 function generacionEntrenamientos()
 {
@@ -56,7 +60,7 @@ function generacionEntrenamientos()
         $valor[] = NULL;
         for ($i = 0; $i <= $limite * $factor; $i+=$factor)
         {
-            for ($j = $i; $j < $i + 3; $j++)
+            for ($j = $i; $j < $i + $factor; $j++)
           {
            $valor[$j]["descripcion"] = $valores[$j]["descripcion"];
            $valor[$j]["caloriasminuto"] = $valores[$j]["caloriasminuto"];
