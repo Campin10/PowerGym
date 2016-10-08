@@ -143,7 +143,7 @@ function cargarValoresEnfermedades()
 function generarEntrenamiento()
 {
       $.post('../Controller/HomeController.php',$('#form03').serialize(), function (response) {
-          $("#tablaEntrenamientos").empty();
+          $("#registros").empty();
           var obj = jQuery.parseJSON(response);
                     $.each(obj, function (key, val) {
            var nuevoRegistro;
@@ -151,7 +151,7 @@ function generarEntrenamiento()
            nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+val.dia+"> "+val.dia+"</td>";
            nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.descripcion+"> "+val.descripcion+"</td>";
            nuevoRegistro+="<td><input type='hidden' id='idacalorias' name='idacalorias[]' value="+val.caloriasminuto+"> "+val.caloriasminuto+"</td> <tr>";
-                        $("#tablaEntrenamientos").append(nuevoRegistro);
+                        $("#registros").append(nuevoRegistro);
                     });
             });
 }

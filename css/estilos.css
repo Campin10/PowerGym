@@ -2,6 +2,11 @@ body {
 	margin: 0;
 	font-family: 'Josefin Sans', sans-serif;
 }
+
+#tabla{
+    background-color: white !important;
+}
+
 .contains {
 	position: absolute;
 	width: 100%;
