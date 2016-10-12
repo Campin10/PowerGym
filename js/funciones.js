@@ -85,7 +85,8 @@ function AgregarListaTabla()
     nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+$("#TipoEnfermedades").val()+"> "+$("#TipoEnfermedades  option:selected").text()+"</td>";
     nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+$("#salud01").val()+"> "+$("#salud01").val()+"</td> <tr>";
     $("#tablaEnfermedades").append(nuevoRegistro);
-    
+    var grow = $(document).height();
+    $('.prob-salud').css({'height':grow + 15});
 }
 
 function AgregarListaTablaActividades()
@@ -98,6 +99,8 @@ function AgregarListaTablaActividades()
     nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+$("#textdescripcion").val()+"> "+$("#textdescripcion").val()+"</td></tr>";
    
     $("#tablaActividades").append(nuevoRegistro);
+    var grow = $(document).height();
+    $('.formulario03').css({'height':grow + 15});
 }
 
 function GuardarEnfermedades()
@@ -154,6 +157,8 @@ function generarEntrenamiento()
                         $("#registros").append(nuevoRegistro);
                     });
             });
+      var grows = $(document).height();
+      $('.formulario03').css({'height':grows + 15});
 }
 
 function menuOption()
@@ -207,7 +212,11 @@ function menuOption()
       
 	});
 }
-
+function fichaNew() {
+    $('.result h1').animate({top:'0px'});
+    $('.ficha').fadeIn(2000);
+    $('.ficha').css({top: ($(document).height()) / 2 - 200})
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
