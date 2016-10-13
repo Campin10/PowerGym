@@ -21,7 +21,26 @@ function autenticacionGym() {
         });
   });
 }
-     function guardarDatos()
+
+function cargarListaGenerada()
+{
+               $.ajax({
+                type: "POST",
+                url: '../Controller/HomeController.php',
+                dataType: "html",
+                data: {action: 'cargarvista', nivel:$("#nivel").val()},
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    closeNotify();
+                    $("#tabla").html(response);
+                }
+            }); 
+}
+    
+
+function guardarDatos()
        {  
           
           var jqxhr = $.post( "../Controller/HomeController.php", $('#form01').serialize(),function() {
@@ -151,9 +170,9 @@ function generarEntrenamiento()
                     $.each(obj, function (key, val) {
            var nuevoRegistro;
            nuevoRegistro = "<tr>";
-           nuevoRegistro+="<td><input type='hidden' id='ids' name='ids[]' value="+val.dia+"> "+val.dia+"</td>";
-           nuevoRegistro+="<td><input type='hidden' id='idaname' name='idaname[]' value="+val.descripcion+"> "+val.descripcion+"</td>";
-           nuevoRegistro+="<td><input type='hidden' id='idacalorias' name='idacalorias[]' value="+val.caloriasminuto+"> "+val.caloriasminuto+"</td> <tr>";
+           nuevoRegistro+="<td>"+val.dia+"</td>";
+           nuevoRegistro+="<td>"+val.descripcion+"</td>";
+           nuevoRegistro+="<td>"+val.caloriasminuto+"</td> </tr>";
                         $("#registros").append(nuevoRegistro);
                     });
             });
