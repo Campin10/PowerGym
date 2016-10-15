@@ -120,6 +120,21 @@ body {
 	cursor: pointer;
 	text-decoration: none;
 }
+#link06 {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	border: 1px solid blue;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	top: 305px;
+	border: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 1.7;
+	cursor: pointer;
+	text-decoration: none;
+}
 .formulario {
 	position: absolute;
 	width: 100%;
@@ -134,8 +149,7 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
-/*	background: #e67300;*/
-        background-image: url("../images/homegym.jpg");
+        background: #e67300;
 }
 .prob-salud {
 	position: absolute;

@@ -29,8 +29,19 @@ case 'cargarListaActividades':
     case 'cargarvistaEn':
         calcularEntrenamientoRecomendado();
         break;
+    case 'cargarFicha':
+        DatosBasicosFicha();
+        break;
     default:
         break;
+}
+
+
+function DatosBasicosFicha()
+{
+    $valores = consultasql();
+    $res = json_encode("select dp.nombre, dp.apellidos, dp.edad, dp.estatura from datospersona dp inner join usuarios u on dp.identificacion = u.identificacion where u.idusuario =".$_SESSION["idUseru"]);
+    return $res;
 }
 
 function calcularEntrenamientoRecomendado()
