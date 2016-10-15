@@ -15,9 +15,7 @@
         <script type="text/javascript" src="../js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" >
            $(document).ready(function(){       
-               oTable = $('#tablaEntrenamientos').DataTable({ "pagingType": "full_numbers", "bStateSave": true, "bInfo": false }); 
               cargarListaNiveles();
-               
             });
                
         </script>
@@ -32,7 +30,7 @@
       <input type="hidden" name="tipo" id="tipo">
         <select id="nivel" class='frm' name="nivel"></select>
 	<div class="row" style="height:45px;">&nbsp;</div>
-        <input type="button" class="btn btn-success" id="btnagregar" value="Generar" onclick="generarEntrenamiento();">
+        <input type="button" class="btn btn-success" id="btnagregar" value="Generar" onclick="cargarListaGenerada();">
         <div class="row" style="height:85px;">&nbsp;</div>
         <div id="tabla">
 
@@ -40,9 +38,5 @@
   </form>
 </div>
 <!--FIN CAPA FORMULARIO1-->
-<script type="text/javascript">
-    function carga() 
-    {oTable = $('#tablaEntrenamientos').DataTable({ "pagingType": "full_numbers", "bStateSave": true, "bInfo": false }); }
-</script>
 </body>
 </html>

@@ -26,15 +26,17 @@ case 'cargarListaActividades':
     case 'generarentrenamientos':
         generacionEntrenamientos();
         break;
+    case 'cargarvistaEn':
+        calcularEntrenamientoRecomendado();
+        break;
     default:
         break;
 }
 
-//function calcularEntrenamientoRecomendado()
-//{
-//   $valores = consultasql($cadena);
-//
-//}
+function calcularEntrenamientoRecomendado()
+{
+     $_SESSION["nivelses"] = $_POST["nivel"];
+}
 
 function generacionEntrenamientos()
 {

@@ -24,17 +24,17 @@ function autenticacionGym() {
 
 function cargarListaGenerada()
 {
+            $("#tabla").empty();  
                $.ajax({
                 type: "POST",
                 url: '../Controller/HomeController.php',
                 dataType: "html",
-                data: {action: 'cargarvista', nivel:$("#nivel").val()},
+                data: {action: 'cargarvistaEn', nivel:$("#nivel").val()},
                 cache: false,
-                contentType: false,
+                contentType: "html",
                 processData: false,
                 success: function (response) {
-                    closeNotify();
-                    $("#tabla").html(response);
+                    $("#tabla").load(href="../Views/ListaRutina.html"); 
                 }
             }); 
 }
@@ -164,7 +164,7 @@ function cargarValoresEnfermedades()
 
 function generarEntrenamiento()
 {
-      $.post('../Controller/HomeController.php',$('#form03').serialize(), function (response) {
+      $.post('../Controller/HomeController.php',{ action: "generarentrenamientos", nivel: $("#nivel").val() }, function (response) {
           $("#registros").empty();
           var obj = jQuery.parseJSON(response);
                     $.each(obj, function (key, val) {
@@ -191,11 +191,13 @@ function menuOption()
       form03 = document.createElement('a');
       form04 = document.createElement('a');
       form05 = document.createElement('a');
+      form06 = document.createElement('a');
 	    txt01 = document.createTextNode('Salir');
 	    txt02 = document.createTextNode('Datos personales');
       txt03 = document.createTextNode('Problemas de salud');
       txt04 = document.createTextNode('Entrenamiento');
       txt05 = document.createTextNode('Actividad fisica');
+      txt06 = document.createTextNode('Ficha persona');
 
 	    menu.setAttribute('id','layer01');
 	    form01.setAttribute('id','link01');
@@ -208,17 +210,21 @@ function menuOption()
       form04.href = 'entrenamientos.html';
       form05.setAttribute('id','link05');
       form05.href = 'actividades-fisicas.html';
+      form06.setAttribute('id','link06');
+      form06.href = 'ficha.html';
 		document.body.appendChild(menu);
 		menu.appendChild(form01);
 		menu.appendChild(form02);
     menu.appendChild(form03);
     menu.appendChild(form04);
     menu.appendChild(form05);
+    menu.appendChild(form06);
         form01.appendChild(txt01);
         form02.appendChild(txt02);
         form03.appendChild(txt03);
         form04.appendChild(txt04);
         form05.appendChild(txt05);
+        form06.appendChild(txt06);
 	$('#layer01').animate({'right':0});
 	$('#back').on('click', function(){
       $('#back').hide(500);
